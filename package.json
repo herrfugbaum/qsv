@@ -1,0 +1,11 @@
+{
+  "name": "ncsvql",
+  "version": "0.0.1",
+  "description": "query csv files with sql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pascal Spiesz <pascal@slamcode.com>",
+  "license": "MIT"
+}
