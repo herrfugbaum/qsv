@@ -27,7 +27,6 @@ rl.prompt()
 
 rl.on('line', (line) => {
   const sqlParserResult = parse(line)
-  console.log(sqlParserResult)
   const processedTable = getData(sqlParserResult, parsedData)
   process.stdout.write(renderTable(processedTable))
 
