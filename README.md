@@ -1,4 +1,4 @@
-Process .csv files with an SQL like syntax.
+Process .csv files with a SQL like syntax.
 
 *Work in Progress*
 
@@ -14,7 +14,7 @@ yarn global add qsv
 ```
 For files with headers:
 ```bash
-gsv -p "./path/to/my/file.csv" -h
+qsv -p "./path/to/my/file.csv" -h
 ```
 
 For files without headers:
