@@ -1,6 +1,6 @@
 {
   "name": "qsv",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Query csv files with a SQL like syntax.",
   "main": "index.js",
   "bin": {
