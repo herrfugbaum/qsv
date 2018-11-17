@@ -4,6 +4,8 @@ Process .csv files with a SQL like syntax.
 
 *Currently supports SELECT statements*
 
+![qsv demo session](https://s3-us-west-2.amazonaws.com/s.cdpn.io/496585/qsv.gif)
+
 ```bash
 npm install qsv -g
 ```
@@ -44,3 +46,9 @@ Your table will receive enumerated headers in memory, so you can query it like t
 SELECT 0, 1 FROM table
 ```
 
+Options
+
+| Option | Verbose Version | Description                                 |
+| ------ | --------------- | ------------------------------------------- |
+| -h     |                 | Indicate that the file to parse has headers |
+| -d     |                 | Specifiy the delimiter of your file.        |
