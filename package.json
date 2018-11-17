@@ -1,8 +1,11 @@
 {
-  "name": "ncsvql",
-  "version": "0.0.1",
-  "description": "query csv files with sql",
+  "name": "qsv",
+  "version": "0.0.3",
+  "description": "Query csv files with a SQL like syntax.",
   "main": "index.js",
+  "bin": {
+    "qsv": "./bin/qsv.js"
+  },
   "scripts": {
     "test": "jest"
   },

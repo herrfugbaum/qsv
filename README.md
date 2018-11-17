@@ -1,46 +1,46 @@
-Proposed usage:
+Process .csv files with an SQL like syntax.
 
+*Work in Progress*
+
+*Currently supports SELECT statements*
+
+```bash
+npm install qsv -g
+```
+
+Or if you're using yarn
+```bash
+yarn global add qsv
+```
+For files with headers:
+```bash
+gsv -p "./path/to/my/file.csv" -h
+```
+
+For files without headers:
+```bash
 qsv -p "./path/to/my/file.csv"
+```
+After loading the file you will get into REPL mode, indicated by the QSV> prompt.
+In REPL mode you can use SQL Queries against your .csv file.
 
-OR
+Examples:
 
-gsv -p "./path/to/my/file.csv" --headers
+```bash
+SELECT * FROM table
+```
 
-Options:
+```bash
+SELECT column1, column2 FROM table
+```
 
--p --path
--d --delimiter
--m --man
--h --headers
+table is just a placeholder, you don't need to specify something that makes sense, just don't leave it blank.
+column1 and column2 are examples for the header fields.
 
--> switch into interactive mode
+If your .csv file doesn't have headers omit the -h option.
+Your table will receive enumerated headers in memory, so you can query it like this:
 
-V1 -> Array of Array of Array of Values
-[
-  [[colum1], [column2], [column3]],
-  [[colum1], [column2], [column3]],
-]
+```bash
+SELECT 0, 1 FROM table
+```
 
-vs
-
-V2 -> Array of Array of Values
-[
-  [colum1, column2, column3],
-  [colum1, column2, column3],
-]
-
-vs
-
-V3 -> Array of Objects
-[
-  {
-    column1: column1,
-    column2: column2,
-    column3: column3,
-  },
-  {
-    column1: column1,
-    column2: column2,
-    column3: column3,
-  },
-]
