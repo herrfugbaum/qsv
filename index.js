@@ -1,23 +1,26 @@
-const fs = require('fs')
-const readline = require('readline')
+#!/usr/bin/env node
 
-const Papa = require('papaparse')
+const yargs = require('yargs').parse()
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-})
+const readFile = require('./src/readFile')
+const parseCsv = require('./src/parseFile')
+const repl = require('./src/repl')
 
-fs.readFile('./dev/test.csv', 'utf8', (err, data) => {
-  if (err) throw new Error(err)
-  const result = Papa.parse(data)
-  rl.question('', answer => {
-    if (answer === 'SELECT * FROM .') {
-      console.log(result.data)
+async function start () {
+  try {
+    if (yargs.p) {
+      const options = {
+        delimiter: yargs.d || '',
+        header: yargs.h || false
+      }
+
+      const data = await readFile(yargs.p, 'utf8')
+      const parsedData = await parseCsv(data, options)
+      repl(parsedData)
     }
-  })
-})
+  } catch (error) {
+    process.stderr.write(error)
+  }
+}
 
-rl.on('line', input => {
-  console.log(input)
-})
+start()
