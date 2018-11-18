@@ -2,7 +2,8 @@ const Papa = require('papaparse')
 
 async function parseCsv(str, options) {
   const opts = Object.assign({
-    dynamicTyping: true
+    dynamicTyping: true,
+    skipEmptyLines: true
   }, options)
 
   try {
