@@ -1,3 +1,5 @@
+'use strict'
+
 const chalk = require('chalk')
 const readline = require('readline')
 const renderTable = require('./renderTable')
@@ -7,7 +9,7 @@ const _ = require('lodash')
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
-  prompt: chalk.cyan('QSV> ')
+  prompt: chalk.cyan('QSV> '),
 })
 
 const getData = (sqlParserResult, parsedData) => {
@@ -15,24 +17,24 @@ const getData = (sqlParserResult, parsedData) => {
     const columns = sqlParserResult.selectClause.columns
 
     if (columns[0] !== '*') {
-      const selectedColumns = _.map(parsedData, (obj) => _.pick(obj, columns))
+      const selectedColumns = _.map(parsedData, obj => _.pick(obj, columns))
       return selectedColumns
     }
     return parsedData
   }
 }
 
-const repl = (parsedData) => {
-rl.prompt()
-
-rl.on('line', (line) => {
-  const sqlParserResult = parse(line)
-  const processedTable = getData(sqlParserResult, parsedData)
-
-  process.stdout.write(renderTable(processedTable))
-  process.stdout.write('\n')
+const repl = parsedData => {
   rl.prompt()
-})
+
+  rl.on('line', line => {
+    const sqlParserResult = parse(line)
+    const processedTable = getData(sqlParserResult, parsedData)
+
+    process.stdout.write(renderTable(processedTable))
+    process.stdout.write('\n')
+    rl.prompt()
+  })
 }
 
 module.exports = repl
