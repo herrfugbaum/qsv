@@ -8,7 +8,7 @@ Process .csv files with a SQL like syntax.
 
 *Work in Progress*
 
-*Currently supports SELECT statements*
+*Currently supports SELECT statements and simple (one column) ORDER BY clauses*
 
 ![qsv demo session](https://s3-us-west-2.amazonaws.com/s.cdpn.io/496585/qsv.gif)
 
@@ -32,7 +32,9 @@ qsv -p "./path/to/my/file.csv"
 After loading the file you will get into REPL mode, indicated by the QSV> prompt.
 In REPL mode you can use SQL Queries against your .csv file.
 
-Examples:
+## Examples:
+
+### SELECT
 
 ```bash
 SELECT * FROM table
@@ -40,6 +42,16 @@ SELECT * FROM table
 
 ```bash
 SELECT column1, column2 FROM table
+```
+
+### ORDER BY
+```bash
+# ASC is default for ORDER BY so this
+SELECT * FROM table ORDER BY column1
+# is the same as:
+SELECT * FROM table ORDER BY column1 ASC
+# For descending order you need to add DESC
+SELECT * FROM table ORDER BY column1 DESC
 ```
 
 table is just a placeholder, you don't need to specify something that makes sense, just don't leave it blank.
