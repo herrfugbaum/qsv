@@ -1,6 +1,6 @@
 {
   "name": "qsv",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Query csv files with a SQL like syntax.",
   "keywords": [
     "csv",
@@ -17,6 +17,14 @@
   },
   "author": "Pascal Spiesz <pascal@slamcode.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/herrfugbaum/qsv.git"
+  },
+  "bugs": {
+    "url": "https://github.com/herrfugbaum/qsv/issues"
+  },
+  "homepage": "https://github.com/herrfugbaum/qsv#readme",
   "dependencies": {
     "@herrfugbaum/q": "^0.0.4",
     "chalk": "^2.4.1",
