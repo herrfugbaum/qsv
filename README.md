@@ -1,5 +1,8 @@
 Process .csv files with a SQL like syntax.
 
+
+[![Gitter](https://img.shields.io/gitter/room/herrfugbaum/qsv.svg?style=flat-square)](https://gitter.im/qsv-chat/Lobby)
+
 *Work in Progress*
 
 *Currently supports SELECT statements*
