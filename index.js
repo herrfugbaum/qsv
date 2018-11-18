@@ -1,15 +1,17 @@
+'use strict'
+
 const yargs = require('yargs').parse()
 
 const readFile = require('./src/readFile')
 const parseCsv = require('./src/parseFile')
 const repl = require('./src/repl')
 
-async function start () {
+async function start() {
   try {
     if (yargs.p) {
       const options = {
         delimiter: yargs.d || '',
-        header: yargs.h || false
+        header: yargs.h || false,
       }
 
       const data = await readFile(yargs.p, 'utf8')
