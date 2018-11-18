@@ -13,7 +13,7 @@
     "qsv": "./bin/qsv.js"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "author": "Pascal Spiesz <pascal@slamcode.com>",
   "license": "MIT",
