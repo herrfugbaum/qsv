@@ -600,10 +600,10 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@herrfugbaum/q@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@herrfugbaum/q/-/q-0.0.4.tgz#a95ef93ec051204da5b2b47e7f2b85e91f03e567"
-  integrity sha512-uais0ndY9YvDY6XaRUAu2uoWuQ7qLCVfXrWK1RBWgxnZAw7xnGNKAGfgK6tSEicLrYWZWJMIs60U9NohS0ZSTA==
+"@herrfugbaum/q@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@herrfugbaum/q/-/q-0.1.0.tgz#8303bc1adc474ee8a6ea871e1fc296d7c8dca3d0"
+  integrity sha512-IJivDZGMllTlsvDD0vKbzjupDq8H7QCjfcBynSwbbyf2TVA66DCHCZhNUiyuGNcJ3u4sYqDKEovI2jK45tFdCw==
   dependencies:
     chevrotain "^4.1.0"
 

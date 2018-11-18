@@ -1,6 +1,6 @@
 {
   "name": "qsv",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "Query csv files with a SQL like syntax.",
   "keywords": [
     "csv",
@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/herrfugbaum/qsv#readme",
   "dependencies": {
-    "@herrfugbaum/q": "^0.0.4",
+    "@herrfugbaum/q": "^0.1.0",
     "chalk": "^2.4.1",
     "fs-extra": "^7.0.1",
     "lodash": "^4.17.11",
