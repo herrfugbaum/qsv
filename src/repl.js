@@ -12,15 +12,26 @@ const rl = readline.createInterface({
   prompt: chalk.cyan('QSV> '),
 })
 
+const orderBy = (data, columns, orders) => {
+  const lowerOrders = orders.map(order => order.toLowerCase())
+  if (orders.length > 0) {
+    return _.orderBy(data, columns, lowerOrders)
+  }
+  return data
+}
+
 const getData = (sqlParserResult, parsedData) => {
+  // temporarily hardcoded as arrays, until the parser is ready to understand multiple order by conditions
+  const columnOrders = [sqlParserResult.orderByClause.condition]
+  const columnsToOrder = [sqlParserResult.orderByClause.expression]
   if (sqlParserResult.type === 'SELECT_STMT') {
     const columns = sqlParserResult.selectClause.columns
 
     if (columns[0] !== '*') {
       const selectedColumns = _.map(parsedData, obj => _.pick(obj, columns))
-      return selectedColumns
+      return orderBy(selectedColumns, columnsToOrder, columnOrders)
     }
-    return parsedData
+    return orderBy(parsedData, columnsToOrder, columnOrders)
   }
 }
 
