@@ -36,21 +36,21 @@ In REPL mode you can use SQL Queries against your .csv file.
 
 ### SELECT
 
-```bash
+```sql
 SELECT * FROM table
 ```
 
-```bash
+```sql
 SELECT column1, column2 FROM table
 ```
 
 ### ORDER BY
-```bash
-# ASC is default for ORDER BY so this
+```sql
+-- ASC is default for ORDER BY so this
 SELECT * FROM table ORDER BY column1
-# is the same as:
+-- is the same as:
 SELECT * FROM table ORDER BY column1 ASC
-# For descending order you need to add DESC
+-- For descending order you need to add DESC
 SELECT * FROM table ORDER BY column1 DESC
 ```
 
@@ -60,7 +60,7 @@ column1 and column2 are examples for the header fields.
 If your .csv file doesn't have headers omit the -h option.
 Your table will receive enumerated headers in memory, so you can query it like this:
 
-```bash
+```sql
 SELECT 0, 1 FROM table
 ```
 
