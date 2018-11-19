@@ -1,10 +1,6 @@
 {
   "name": "qsv",
-<<<<<<< HEAD
   "version": "0.2.0",
-=======
-  "version": "0.1.1",
->>>>>>> 17536ac8026c8e5ef3abb656a77b6807a663bfab
   "description": "Query csv files with a SQL like syntax.",
   "keywords": [
     "csv",
