@@ -2,18 +2,7 @@
 
 const table = require('table').table
 const chalk = require('chalk')
-
-const colorizeObject = obj => {
-  return Object.keys(obj).map(key => {
-    const item = obj[key]
-    switch (typeof item) {
-      case 'number':
-        return chalk.yellow(item)
-      default:
-        return chalk.green(item)
-    }
-  })
-}
+const colorizeObject = require('./util/colorizeObject')
 
 const renderTable = data => {
   const headers = [Object.keys(data[0]).map(key => chalk.red(key))]
