@@ -10,7 +10,7 @@ Process .csv files with a SQL like syntax.
 
 *Currently supports SELECT statements and simple (one column) ORDER BY clauses*
 
-![qsv demo session](https://s3-us-west-2.amazonaws.com/s.cdpn.io/496585/qsv.gif)
+![qsv demo session](https://slamcode.com/qsv/demo.gif)
 
 ```bash
 npm install qsv -g
