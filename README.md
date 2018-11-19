@@ -4,7 +4,7 @@ Process .csv files with a SQL like syntax.
 [![codecov](https://codecov.io/gh/herrfugbaum/qsv/branch/master/graph/badge.svg)](https://codecov.io/gh/herrfugbaum/qsv)
 [![Maintainability](https://api.codeclimate.com/v1/badges/07a7c20e81c6ab493132/maintainability)](https://codeclimate.com/github/herrfugbaum/qsv/maintainability)
 
-[![Gitter](https://img.shields.io/gitter/room/herrfugbaum/qsv.svg)](https://gitter.im/qsv-chat/Lobby)
+[![Gitter](https://img.shields.io/gitter/room/herrfugbaum/qsv.svg)](https://gitter.im/qsv-chat/Lobby) [![Greenkeeper badge](https://badges.greenkeeper.io/herrfugbaum/qsv.svg)](https://greenkeeper.io/)
 
 *Work in Progress*
 
