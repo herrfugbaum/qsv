@@ -13,8 +13,8 @@ const rl = readline.createInterface({
 })
 
 const orderBy = (data, columns, orders) => {
-  const lowerOrders = orders.map(order => order.toLowerCase())
   if (orders.length > 0) {
+    const lowerOrders = orders.map(order => order.toLowerCase())
     return _.orderBy(data, columns, lowerOrders)
   }
   return data
@@ -22,8 +22,12 @@ const orderBy = (data, columns, orders) => {
 
 const getData = (sqlParserResult, parsedData) => {
   // temporarily hardcoded as arrays, until the parser is ready to understand multiple order by conditions
-  const columnOrders = [sqlParserResult.orderByClause.condition]
-  const columnsToOrder = [sqlParserResult.orderByClause.expression]
+  let columnOrders = []
+  let columnsToOrder = []
+  if (sqlParserResult.orderByClause) {
+    columnOrders = [sqlParserResult.orderByClause.condition]
+    columnsToOrder = [sqlParserResult.orderByClause.expression]
+  }
   if (sqlParserResult.type === 'SELECT_STMT') {
     const columns = sqlParserResult.selectClause.columns
 
