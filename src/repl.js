@@ -21,10 +21,10 @@ const orderBy = (data, columns, orders) => {
 }
 
 const getData = (sqlParserResult, parsedData) => {
-  // temporarily hardcoded as arrays, until the parser is ready to understand multiple order by conditions
   let columnOrders = []
   let columnsToOrder = []
   if (sqlParserResult.orderByClause) {
+    // temporarily hardcoded as arrays, until the parser is ready to understand multiple order by conditions
     columnOrders = [sqlParserResult.orderByClause.condition]
     columnsToOrder = [sqlParserResult.orderByClause.expression]
   }
