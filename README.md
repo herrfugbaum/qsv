@@ -8,7 +8,10 @@ Process .csv files with a SQL like syntax.
 
 *Work in Progress*
 
-*Currently supports SELECT statements and simple (one column) ORDER BY clauses*
+*Currently supports:*
+* SELECT
+* ORDER BY (single column)
+* LIMIT
 
 ![qsv demo session](https://slamcode.com/qsv/demo.gif)
 
