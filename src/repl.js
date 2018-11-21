@@ -20,9 +20,19 @@ const orderBy = (data, columns, orders) => {
   return data
 }
 
+const limit = (limit, arr) => {
+  const start = 0
+  const stop = limit || arr.length - 1
+  return _.slice(arr, start, stop)
+}
+
 const getData = (sqlParserResult, parsedData) => {
+  console.log(sqlParserResult)
   let columnOrders = []
   let columnsToOrder = []
+  const limitStop = sqlParserResult.limitClause
+    ? sqlParserResult.limitClause.limit
+    : false
   if (sqlParserResult.orderByClause) {
     // temporarily hardcoded as arrays, until the parser is ready to understand multiple order by conditions
     columnOrders = [sqlParserResult.orderByClause.condition]
@@ -33,9 +43,13 @@ const getData = (sqlParserResult, parsedData) => {
 
     if (columns[0] !== '*') {
       const selectedColumns = _.map(parsedData, obj => _.pick(obj, columns))
-      return orderBy(selectedColumns, columnsToOrder, columnOrders)
+      const result = limit(
+        limitStop,
+        orderBy(selectedColumns, columnsToOrder, columnOrders),
+      )
+      return result
     }
-    return orderBy(parsedData, columnsToOrder, columnOrders)
+    return limit(limitStop, orderBy(parsedData, columnsToOrder, columnOrders))
   }
 }
 
