@@ -61,6 +61,8 @@ Supported operators
 | >=       | Greater Than or Equal |
 | <        | Less Than or Equal    |
 
+Examples
+
 ```sql
 SELECT * FROM table WHERE column1>10
 
