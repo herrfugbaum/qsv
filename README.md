@@ -59,7 +59,7 @@ Supported operators
 | >        | Greater Than          |
 | <        | Less Than             |
 | >=       | Greater Than or Equal |
-| <        | Less Than or Equal    |
+| <=       | Less Than or Equal    |
 
 Examples
 
