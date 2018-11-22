@@ -9,14 +9,14 @@
       "request": "launch",
       "name": "Launch with path",
       "program": "${workspaceFolder}\\bin\\qsv.js",
-      "args": "-d dev\\demo.csv -h"
+      "args": ["-d dev\\demo.csv", "-h"]
     },
     {
       "type": "node",
       "request": "launch",
       "name": "Launch pipe",
       "program": "${workspaceFolder}\\bin\\qsv.js",
-      "args": "-h"
+      "args": ["-h"]
     },
   ]
 }
