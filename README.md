@@ -10,6 +10,7 @@ Process .csv files with a SQL like syntax.
 
 *Currently supports:*
 * SELECT
+* WHERE
 * ORDER BY (single column)
 * LIMIT
 
@@ -46,6 +47,34 @@ SELECT * FROM table
 ```sql
 SELECT column1, column2 FROM table
 ```
+
+### WHERE
+
+Supported operators
+
+| operator | meaning               |
+|----------|-----------------------|
+| =        | Equal                 |
+| <>       | Not Equal             |
+| >        | Greater Than          |
+| <        | Less Than             |
+| >=       | Greater Than or Equal |
+| <        | Less Than or Equal    |
+
+```sql
+SELECT * FROM table WHERE column1>10
+
+SELECT * FROM table WHERE column1<10
+
+SELECT * FROM table WHERE column1>=10
+
+SELECT * FROM table WHERE column1<=10
+
+SELECT * FROM table WHERE column1<>Peter
+
+SELECT * FROM table WHERE colum2=Mexico
+```
+
 
 ### ORDER BY
 ```sql
