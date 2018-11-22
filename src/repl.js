@@ -6,50 +6,55 @@ const renderTable = require('./renderTable')
 const parse = require('@herrfugbaum/q')
 const _ = require('lodash')
 
+const {
+  select,
+  where,
+  orderBy,
+  limit,
+} = require('./sql-processors/sql-processors')
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
   prompt: chalk.cyan('QSV> '),
 })
 
-const orderBy = (data, columns, orders) => {
-  if (orders.length > 0) {
-    const lowerOrders = orders.map(order => order.toLowerCase())
-    return _.orderBy(data, columns, lowerOrders)
-  }
-  return data
-}
-
-const limit = (limit, arr) => {
-  const start = 0
-  const stop = limit || arr.length - 1
-  return _.slice(arr, start, stop)
-}
-
 const getData = (sqlParserResult, parsedData) => {
-  console.log(sqlParserResult)
-  let columnOrders = []
-  let columnsToOrder = []
+  console.log(parsedData)
+  // LIMIT param setup
   const limitStop = sqlParserResult.limitClause
     ? sqlParserResult.limitClause.limit
     : false
+
+  // WHERE param setup
+  const whereCondition = sqlParserResult.whereClause
+    ? sqlParserResult.whereClause.condition
+    : false
+
+  // ORDER BY param setup
+  let columnOrders = []
+  let columnsToOrder = []
   if (sqlParserResult.orderByClause) {
     // temporarily hardcoded as arrays, until the parser is ready to understand multiple order by conditions
     columnOrders = [sqlParserResult.orderByClause.condition]
     columnsToOrder = [sqlParserResult.orderByClause.expression]
   }
-  if (sqlParserResult.type === 'SELECT_STMT') {
-    const columns = sqlParserResult.selectClause.columns
 
-    if (columns[0] !== '*') {
-      const selectedColumns = _.map(parsedData, obj => _.pick(obj, columns))
-      const result = limit(
-        limitStop,
-        orderBy(selectedColumns, columnsToOrder, columnOrders),
-      )
-      return result
-    }
-    return limit(limitStop, orderBy(parsedData, columnsToOrder, columnOrders))
+  // SELECT param setup
+  const columns = sqlParserResult.selectClause
+    ? sqlParserResult.selectClause.columns
+    : false
+
+  if (sqlParserResult.type === 'SELECT_STMT') {
+    const result = limit(
+      limitStop,
+      orderBy(
+        columnsToOrder,
+        columnOrders,
+        where(whereCondition, select(columns, parsedData)),
+      ),
+    )
+    return result
   }
 }
 
