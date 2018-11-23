@@ -1,5 +1,18 @@
 const _ = require('lodash')
 
+/**
+ * Exports the where function.
+ * @module sql-processors/where
+ * @requires lodash
+ */
+
+/**
+ * Executes the SQL WHERE statement on an Array of Objects.
+ * @param {Object} condition
+ * @param {Array} data
+ * @returns {Array}
+ */
+
 const where = (condition, data) => {
   if (condition) {
     switch (condition.operator) {
