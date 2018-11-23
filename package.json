@@ -13,7 +13,8 @@
     "qsv": "./bin/qsv.js"
   },
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "build-docs": "jsdoc src/ -c .jsdoc.conf.json"
   },
   "author": "Pascal Spiesz <pascal@slamcode.com>",
   "license": "MIT",
@@ -45,6 +46,7 @@
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-prettier": "^3.0.0",
     "jest": "^23.6.0",
+    "jsdoc": "^3.5.5",
     "mock-fs": "^4.7.0",
     "prettier": "^1.15.2"
   }
