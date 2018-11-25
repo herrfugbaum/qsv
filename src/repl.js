@@ -17,11 +17,15 @@ const repl = parsedData => {
   rl.prompt()
 
   rl.on('line', line => {
-    const sqlParserResult = parse(line)
-    const processedTable = executeSql(sqlParserResult, parsedData)
+    try {
+      const sqlParserResult = parse(line)
+      const processedTable = executeSql(sqlParserResult, parsedData)
 
-    process.stdout.write(renderTable(processedTable))
-    process.stdout.write('\n')
+      process.stdout.write(renderTable(processedTable))
+      process.stdout.write('\n')
+    } catch (error) {
+      process.stdout.write(error.message + '\n')
+    }
     rl.prompt()
   })
 }
