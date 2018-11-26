@@ -21,6 +21,10 @@ describe('orderBy()', () => {
       columns    | orders      | data    | expected
       ${['age']} | ${['DESC']} | ${data} | ${[{ name: 'Becka', age: 47, gender: 'female' }, { name: 'Bob', age: 15, gender: 'male' }]}
       ${['age']} | ${['ASC']}  | ${data} | ${[{ name: 'Bob', age: 15, gender: 'male' }, { name: 'Becka', age: 47, gender: 'female' }]}
+      ${['age']} | ${[]}       | ${data} | ${data}
+      ${[]}      | ${['ASC']}  | ${data} | ${data}
+      ${[]}      | ${[]}       | ${data} | ${data}
+      ${''}      | ${''}       | ${data} | ${data}
     `(
       'should return $columns in $orders',
       ({ columns, orders, data, expected }) => {
