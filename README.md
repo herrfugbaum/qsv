@@ -3,6 +3,7 @@ Process .csv files with a SQL like syntax.
 [![Build Status](https://travis-ci.org/herrfugbaum/qsv.svg?branch=master)](https://travis-ci.org/herrfugbaum/qsv)
 [![codecov](https://codecov.io/gh/herrfugbaum/qsv/branch/master/graph/badge.svg)](https://codecov.io/gh/herrfugbaum/qsv)
 [![Maintainability](https://api.codeclimate.com/v1/badges/07a7c20e81c6ab493132/maintainability)](https://codeclimate.com/github/herrfugbaum/qsv/maintainability)
+[![Mutation Score](https://badge.stryker-mutator.io/github.com/herrfugbaum/qsv/master)](https://badge.stryker-mutator.io/github.com/herrfugbaum/qsv/master)
 
 [![Gitter](https://img.shields.io/gitter/room/herrfugbaum/qsv.svg)](https://gitter.im/qsv-chat/Lobby) [![Greenkeeper badge](https://badges.greenkeeper.io/herrfugbaum/qsv.svg)](https://greenkeeper.io/)
 

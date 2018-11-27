@@ -1,12 +1,20 @@
 language: node_js
-node_js:
-- node
-install:
-- yarn install
-- yarn global add codecov
 cache:
   directories:
   - node_modules
+matrix:
+  include:
+    - node_js: "6"
+      env: NPM_TASK=ci_build_full
+    - node_js: "8"
+      env: NPM_TASK=ci_build_full
+    - node_js: "10"
+      env: NPM_TASK=ci_build_full
+install:
+  - yarn install
+  - yarn global add codecov
+script:
+  - yarn run $NPM_TASK
 deploy:
   provider: npm
   email: pascal@slamcode.com
@@ -17,3 +25,6 @@ deploy:
     repo: herrfugbaum/qsv
 after_success:
 - codecov
+env:
+  global:
+    secure: up/7oteiBBK8VkRyRXIfa9RMwRAVs0QQYWh+Mdf6KKXgEWgmp3IJdnLS4+MJ+yR2EAbWYyTfdil8/Cr249+SaD70keMClIt9bNRsdkztH1E++dgws6dLWLAX8N2376TKYKgzJmanhHOJACGJKKiiJM0asBAnvNhN7vVqJWlF6t5awWtt8+DvDI54kpS725Qc1qaFYdpI9flRZUOEmtpyEwwlbVPK2sXIG4X5GHNOQplaE9SfhjYRJRpmLS6oVtW7Y5Tlzma6xzFiRNP0HHuhqDp3LtiiZ569U9ecungOfgPBGAGrqahLqrnFd/AKJbG1eq4oIWsZ8fVXedlwBmYfEmv7U3BBIEd3EffwFh01VxID5frzPee4loTYXzBqUqhSjsBZVPcrnawHWm/4gQ15Q6vEhFyd0ucflrb5Zhrjv4Ep5bAeFnhdmtuihibgWwFycjdS+OFt9NBtKMiaAdGwKK901AGKJCi2KU3qRVLlaLUX7981DxttmnWaqtbqDhh/oew4fXdg9m7KGaa7Z+AmCZnplxJLs185savueRj9RDznXXhWKpqs5avndsQH2IANNm9MoP2X4I2oDa/gPU8e5PMPET0Q5SKuI4h+g1DzB69Shfv5haPCpGm0l2c6sIV8eKO04Xq0hg4pL+fuZNv4guJnFwUnjL+s5Y0Zx1Fmjzs=

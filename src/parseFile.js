@@ -22,7 +22,7 @@ async function parseCsv(str, options) {
       return objectified
     }
   } catch (error) {
-    console.log(error)
+    throw new Error('Failed to parse data.')
   }
 }
 

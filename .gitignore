@@ -16,6 +16,7 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 coverage
+reports
 
 # nyc test coverage
 .nyc_output
@@ -62,3 +63,6 @@ typings/
 
 # dev
 dev/
+
+# strykers temporary data
+.stryker-tmp

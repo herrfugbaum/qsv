@@ -13,7 +13,10 @@
     "qsv": "./bin/qsv.js"
   },
   "scripts": {
-    "test": "jest --coverage",
+    "ci_build_full": "jest --coverage && stryker run",
+    "test": "jest",
+    "testw": "jest --watch",
+    "testmu": "stryker run",
     "build-docs": "jsdoc src/ -c .jsdoc.conf.json"
   },
   "author": "Pascal Spiesz <pascal@slamcode.com>",
@@ -48,6 +51,12 @@
     "jest": "^23.6.0",
     "jsdoc": "^3.5.5",
     "mock-fs": "^4.7.0",
-    "prettier": "^1.15.2"
+    "prettier": "^1.15.2",
+    "stryker": "^0.32.1",
+    "stryker-api": "^0.21.5",
+    "stryker-baseline-reporter": "^1.0.3",
+    "stryker-html-reporter": "^0.16.7",
+    "stryker-javascript-mutator": "^0.11.5",
+    "stryker-jest-runner": "^1.2.7"
   }
 }
