@@ -13,7 +13,8 @@
     "qsv": "./bin/qsv.js"
   },
   "scripts": {
-    "test": "jest --coverage",
+    "ci_build_full": "jest --coverage && stryker run",
+    "test": "jest",
     "testw": "jest --watch",
     "testmu": "stryker run",
     "build-docs": "jsdoc src/ -c .jsdoc.conf.json"
