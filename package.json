@@ -17,6 +17,7 @@
     "test": "jest",
     "testw": "jest --watch",
     "testmu": "stryker run",
+    "lint": "eslint --fix",
     "build-docs": "jsdoc src/ -c .jsdoc.conf.json"
   },
   "author": "Pascal Spiesz <pascal@slamcode.com>",
