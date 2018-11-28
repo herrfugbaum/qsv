@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 'use strict'
 
+const path = require('path')
+const untildify = require('untildify')
+
 const yargs = require('yargs').parse()
 
 const readFile = require('./../src/readFile')
@@ -15,7 +18,9 @@ async function start() {
         header: yargs.h || false,
       }
 
-      const data = await readFile(yargs.p, 'utf8')
+      const cleanedPath = untildify(path.normalize(yargs.p))
+
+      const data = await readFile(cleanedPath, 'utf8')
       const parsedData = await parseCsv(data, options)
       repl(parsedData)
     }
