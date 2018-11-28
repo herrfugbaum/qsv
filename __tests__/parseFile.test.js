@@ -33,6 +33,8 @@ const simpleWithHeaders = 'name,age,gender\r\nBob,15,male'
 
 const simpleWithoutHeaders = 'Bob,15,male'
 
+const simpleWithEmptyLines = 'c,s,v\r\n\r\n\r\nd,a,t\r\na'
+
 describe('parseFile()', () => {
   describe('smoke:', () => {
     it('should be defined', () => {
@@ -58,19 +60,28 @@ describe('parseFile()', () => {
         2: 'male',
       })
     })
+
+    it('should not contain empty lines', async () => {
+      const result = await parseFile(simpleWithEmptyLines, { header: false })
+      expect(result).toEqual([
+        { 0: 'c', 1: 's', 2: 'v' },
+        { 0: 'd', 1: 'a', 2: 't' },
+        { 0: 'a' },
+      ])
+    })
   })
 
   describe('errors:', () => {
-    it('should throw if called without arguments', () => {
-      expect(parseFile()).rejects.toThrowError(/Failed to parse data\./)
+    it('should throw if called without arguments', async () => {
+      expect(parseFile()).rejects.toThrowError(/^Failed to parse data\.$/)
     })
 
-    it('should throw if called with an object as argument', () => {
-      expect(parseFile({})).rejects.toThrowError(/Failed to parse data\./)
+    it('should throw if called with an object as argument', async () => {
+      expect(parseFile({})).rejects.toThrowError(/^Failed to parse data\.$/)
     })
 
-    it('should throw if called with an array as argument', () => {
-      expect(parseFile([])).rejects.toThrowError(/Failed to parse data\./)
+    it('should throw if called with an array as argument', async () => {
+      expect(parseFile([])).rejects.toThrowError(/^Failed to parse data\.$/)
     })
   })
 })

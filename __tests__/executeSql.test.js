@@ -26,6 +26,7 @@ describe('executeSql()', () => {
       ${'SELECT name FROM table ORDER BY age'}                        | ${data} | ${[{ name: 'Bob' }, { name: 'Cate' }, { name: 'Becka' }]}
       ${'SELECT * FROM table WHERE age > 20 ORDER BY age'}            | ${data} | ${[{ name: 'Becka', age: 47, gender: 'female' }]}
       ${'SELECT name FROM table WHERE age < 20 ORDER BY age LIMIT 2'} | ${data} | ${[{ name: 'Bob' }, { name: 'Cate' }]}
+      ${'SELECT * FROM table LIMIT 0'}                                | ${data} | ${data}
     `(
       'should return the correct result for $query',
       ({ query, data, expected }) => {
@@ -33,5 +34,17 @@ describe('executeSql()', () => {
         expect(executeSql(statement, data)).toEqual(expected)
       },
     )
+  })
+
+  describe('errors:', () => {
+    it('should return falsy when called without a query', () => {
+      expect(executeSql('', data)).toBeFalsy()
+    })
+
+    it('should return falsy when called with invalid arguments', () => {
+      expect(
+        executeSql({ selectClause: true, whereClause: true }, data),
+      ).toBeFalsy()
+    })
   })
 })
