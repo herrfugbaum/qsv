@@ -65,17 +65,17 @@ Supported operators
 Examples
 
 ```sql
-SELECT * FROM table WHERE column1>10
+SELECT * FROM table WHERE column1 > 10
 
-SELECT * FROM table WHERE column1<10
+SELECT * FROM table WHERE column1 < 10
 
-SELECT * FROM table WHERE column1>=10
+SELECT * FROM table WHERE column1 >= 10
 
-SELECT * FROM table WHERE column1<=10
+SELECT * FROM table WHERE column1 <= 10
 
-SELECT * FROM table WHERE column1<>Peter
+SELECT * FROM table WHERE column1 <> Peter
 
-SELECT * FROM table WHERE colum2=Mexico
+SELECT * FROM table WHERE colum2 = Mexico
 ```
 
 
