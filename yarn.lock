@@ -534,9 +534,10 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@herrfugbaum/q@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@herrfugbaum/q/-/q-0.2.1.tgz#14e96f366c9a992f0f34c3efe00f9c261fba4616"
+"@herrfugbaum/q@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@herrfugbaum/q/-/q-0.2.2.tgz#b38bf4f7b6e2b5ad73cf368226ef68f621d185b0"
+  integrity sha512-wdD7fJxaWgRAgzkBQTb9lZKVjRJv/wSN/tClAH00XK22d8lhy/BOIPrEWnFM0gnQzOxCzSj4Y2k6IF/d7NtMvA==
   dependencies:
     chevrotain "^4.1.0"
 
