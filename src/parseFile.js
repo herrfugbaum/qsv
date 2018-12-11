@@ -3,24 +3,26 @@
 const Papa = require('papaparse')
 
 async function parseCsv(str, options) {
-  const opts = Object.assign(
-    {
+  try {
+    const data = []
+    Papa.parse(str, {
       dynamicTyping: true,
       skipEmptyLines: true,
-    },
-    options,
-  )
-
-  try {
-    const data = Papa.parse(str, opts).data
-    if (opts.header) {
-      return data
-    } else {
-      // create an enumerated object
-      const objectified = data.map(d => Object.assign({}, d))
-
-      return objectified
-    }
+      header: options.header,
+      delimiter: options.delimiter,
+      step: function(row) {
+        if (options.header) {
+          data.push(row.data)
+        } else {
+          const objectified = row.data.map(d => Object.assign({}, d))
+          data.push(objectified)
+        }
+      },
+      complete: function() {
+        return data
+      },
+    })
+    //return data
   } catch (error) {
     throw new Error('Failed to parse data.')
   }
