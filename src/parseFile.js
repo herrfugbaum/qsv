@@ -1,10 +1,12 @@
 'use strict'
 
 const Papa = require('papaparse')
+const executeSql = require('./excuteSql')
+const renderTable = require('./renderTable')
 
-async function parseCsv(str, options) {
+function parseCsv(str, options, sqlCst) {
   try {
-    const data = []
+    let data = []
     Papa.parse(str, {
       dynamicTyping: true,
       skipEmptyLines: true,
@@ -12,10 +14,23 @@ async function parseCsv(str, options) {
       delimiter: options.delimiter,
       step: function(row) {
         if (options.header) {
-          data.push(row.data)
+          if (data.length < 100) {
+            data.push(row.data)
+          } else {
+            const parsedData = executeSql(sqlCst, data.flat())
+            renderTable(parsedData)
+            data = []
+          }
         } else {
           const objectified = row.data.map(d => Object.assign({}, d))
-          data.push(objectified)
+          if (data.length < 100) {
+            data.push(objectified)
+          } else {
+            const parsedData = executeSql(sqlCst, data.flat())
+
+            renderTable(parsedData)
+            data = []
+          }
         }
       },
       complete: function() {
