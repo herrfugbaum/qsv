@@ -11,9 +11,11 @@ async function debug() {
   const options = {
     header: true,
   }
-  const data = streamFile('./dev/survey_results_public.csv') // works
-  const sqlCst = parse('SELECT * FROM test LIMIT 3')
-  parseCsv(data, options, sqlCst)
+
+  const rowLimit = 100
+  const data = streamFile('./dev/test.csv') // works
+  const sqlCst = parse('SELECT * FROM test')
+  parseCsv(data, options, sqlCst, rowLimit)
 }
 
 debug()
