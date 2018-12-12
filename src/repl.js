@@ -20,8 +20,8 @@ const repl = parsedData => {
     try {
       const sqlParserResult = parse(line)
       const processedTable = executeSql(sqlParserResult, parsedData)
-
-      process.stdout.write(renderTable(processedTable))
+      renderTable(processedTable)
+      //process.stdout.write(renderTable(processedTable))
       process.stdout.write('\n')
     } catch (error) {
       process.stdout.write(error.message + '\n')
