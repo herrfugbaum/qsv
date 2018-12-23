@@ -59,7 +59,7 @@
     "stryker-api": "^0.21.5",
     "stryker-baseline-reporter": "^1.0.3",
     "stryker-html-reporter": "^0.16.7",
-    "stryker-javascript-mutator": "^0.12.1",
+    "stryker-javascript-mutator": "^0.13.0",
     "stryker-jest-runner": "^1.2.7"
   }
 }
