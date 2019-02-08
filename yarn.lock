@@ -4180,6 +4180,13 @@ stryker-api@^0.21.5:
   dependencies:
     tslib "~1.9.3"
 
+stryker-api@^0.24.0:
+  version "0.24.0"
+  resolved "https://registry.yarnpkg.com/stryker-api/-/stryker-api-0.24.0.tgz#791709cd3e6174cf676e13f79b73710ca9fc20f6"
+  integrity sha512-2A4ErZ9aG85UsHHVvOANJRZtNYxnikF3QRNT7QkfDBoDKZtYxaxVDuWDkwL+WQ2kN/7WMaM2lRxXGOyjZqTELQ==
+  dependencies:
+    tslib "~1.9.3"
+
 stryker-baseline-reporter@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/stryker-baseline-reporter/-/stryker-baseline-reporter-1.0.3.tgz#c127144796ce1896766840cd8c7f13c8202936b8"
@@ -4211,11 +4218,13 @@ stryker-javascript-mutator@^0.12.1:
     lodash "~4.17.4"
     tslib "~1.9.3"
 
-stryker-jest-runner@^1.2.7:
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/stryker-jest-runner/-/stryker-jest-runner-1.2.7.tgz#bb8b46ca17792b3756685a9753fdd08639a371f4"
+stryker-jest-runner@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/stryker-jest-runner/-/stryker-jest-runner-1.4.0.tgz#ff26a20dd70328a3898df38fea070645f4126b4d"
+  integrity sha512-4jdU7kWYMcThyHQBUWvJPB85Vak9n16RDHvW9kgHnAEAc6Ura6wJ54iZTBOiYurRZxSLuDstvlI/871w18bY2Q==
   dependencies:
     semver "~5.6.0"
+    stryker-api "^0.24.0"
 
 stryker@^0.32.1:
   version "0.32.1"
