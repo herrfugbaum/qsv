@@ -33,7 +33,7 @@
   "dependencies": {
     "@herrfugbaum/q": "^0.2.2",
     "chalk": "^2.4.1",
-    "fs-extra": "^7.0.1",
+    "fs-extra": "^9.0.0",
     "lodash": "^4.17.11",
     "papaparse": "^4.6.2",
     "table": "^5.1.0",
