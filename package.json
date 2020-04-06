@@ -52,7 +52,7 @@
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-prettier": "^3.0.0",
     "jest": "^23.6.0",
-    "jsdoc": "^3.5.5",
+    "jsdoc": "^3.6.4",
     "mock-fs": "^4.7.0",
     "prettier": "^1.15.2",
     "stryker": "^0.32.1",
