@@ -95,15 +95,13 @@ readline.emitKeypressEvents(process.stdin)
 process.stdin.setRawMode(true)
 
 const repl = parsedData => {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    prompt: chalk.cyan('QSV> '),
+  })
   replService.onTransition(state => {
     if (state.value === 'repl') {
-      const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout,
-        prompt: chalk.cyan('QSV> '),
-      })
-      rl.removeAllListeners()
-
       rl.prompt()
       rl.on('line', line => {
         replService.send('ENTER_KEY')
